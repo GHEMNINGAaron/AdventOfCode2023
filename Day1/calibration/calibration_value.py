@@ -2,7 +2,7 @@ with open('../puzzle_Input1_Day1.txt', 'r') as file:
     words1 = file.readlines()
     words1 = [word.replace('\n', '') for word in words1]
 
-with open('../puzzle_Input2_Day1.txt', 'r') as file:
+with open('../input.txt', 'r') as file:
     words2 = file.readlines()
     words2 = [word.replace('\n', '') for word in words2]
 
@@ -37,7 +37,7 @@ def numbersInWordToDigits(word):
         for key, value in numbers.items():
             if mot.endswith(key):
                 result += mot[:-len(key)] + str(value)
-                mot = ""
+                mot = mot[-1]
                 break
     result += mot
 

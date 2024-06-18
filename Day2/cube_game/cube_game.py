@@ -1,8 +1,7 @@
 from pygments.lexer import words
 
 with open('../puzzle_Input_Day2.txt', 'r') as file:
-    words1 = file.readlines()
-    words1 = [word.replace('\n', '') for word in words1]
+    words1 = [word.replace('\n', '') for word in file.readlines()]
 
 
 def transform_game_in_dictionary(game):
@@ -15,7 +14,9 @@ def transform_game_in_dictionary(game):
     for i in range(len(dict_game[int(game[0])])):
         val = dict_game[int(game[0])][i].split(",")
         val = [c.replace(" ", "") for c in val]
+        print(val)
         val = {"".join(filter(str.isalpha, c)): int("".join(filter(str.isdigit, c))) for c in val}
+        print(val)
         values.append(val)
 
     dict_game[int(game[0])] = values
@@ -71,4 +72,4 @@ def sum_of_power_of_a_set_of_games(words):
         sum += power
     return sum
 
-print(sum_of_power_of_a_set_of_games(words1))
+
